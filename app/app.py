@@ -15,8 +15,12 @@ from fpdf import FPDF
 try:
     from config import EMAIL_ADDRESS, EMAIL_PASSWORD
 except:
-    EMAIL_ADDRESS  = ""
-    EMAIL_PASSWORD = ""
+    try:
+        EMAIL_ADDRESS  = st.secrets["EMAIL_ADDRESS"]
+        EMAIL_PASSWORD = st.secrets["EMAIL_PASSWORD"]
+    except:
+        EMAIL_ADDRESS  = ""
+        EMAIL_PASSWORD = ""
 
 warnings.filterwarnings('ignore')
 
